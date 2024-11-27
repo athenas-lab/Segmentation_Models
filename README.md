@@ -1,5 +1,6 @@
 ## Image Segmentation Models
 
+#### Fully convolutional models
 - UNet: model as described in the original UNet paper
 - UNet with batchnorm (can be optionally enabled in the config file by setting norm = "bn"
 

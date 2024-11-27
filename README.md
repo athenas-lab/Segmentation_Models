@@ -6,6 +6,6 @@
 
  ## Datasets used for training and evaluation
  - Carvana: https://www.kaggle.com/competitions/carvana-image-masking-challenge
-   - mask images with a single background and remove background
+   - mask images with a single car and remove background
  - Salt: https://www.kaggle.com/c/tgs-salt-identification-challenge/overview
    - mask the areas with salt deposit

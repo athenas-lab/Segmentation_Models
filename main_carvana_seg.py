@@ -48,7 +48,7 @@ def valModel(dn, val, model=None):
 if __name__ == "__main__":
    
    data_name = "carvana"
-   mode = "infer" #["train", "infer"]
+   mode = "predict" #["train", "predict"]
 
    if mode == "train":
       model, val_dl = trainModel(data_name)

@@ -56,7 +56,7 @@ def valModel(dn, val, model=None):
 if __name__ == "__main__":
 
    data_name = "salt"
-   mode = "train" #["train", "infer"]
+   mode = "train" #["train", "predict"]
 
    if mode == "train":
       model, val_dl = trainModel(data_name)

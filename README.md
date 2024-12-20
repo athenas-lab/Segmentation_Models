@@ -51,5 +51,5 @@ add your own dataset.
   - [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
 - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
   - [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
-  - [Segformer Pytorch implementation](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
+  - [Segformer Fintuning with CamVid dataset](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
 

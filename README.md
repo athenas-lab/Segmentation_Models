@@ -1,9 +1,12 @@
 ## Image Segmentation Models
 
 #### Fully convolutional models
-- UNet: model as described in the original UNet paper
+- 
+- UNet: model as described in [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
 - UNet with batchnorm (can be optionally enabled in the config file by setting norm = "bn"
 
+#### Transformer-based models
+- Huggingface implementation of [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
 
 ## Datasets used for training and evaluation
 - [Carvana](https://www.kaggle.com/competitions/carvana-image-masking-challenge)
@@ -45,11 +48,9 @@ add your own dataset.
 
 
 ### References and Acknowledgments
-- [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
-   - [UNet implementation](https://pyimagesearch.com/2021/11/08/u-net-training-image-segmentation-models-in-pytorch/)
+- [UNet implementation](https://pyimagesearch.com/2021/11/08/u-net-training-image-segmentation-models-in-pytorch/)
 - [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
-  - [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
-- [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
-  - [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
-  - [Segformer Fintuning with CamVid dataset](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
+- [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
+- [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
+- [Segformer Fintuning with CamVid dataset](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
 

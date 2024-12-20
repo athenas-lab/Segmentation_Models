@@ -1,4 +1,6 @@
 
+import sys
+sys.path.append("../")
 import config as conf
 import data.salt_data  as data
 import data.utils  as dut

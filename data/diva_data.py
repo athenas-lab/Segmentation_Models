@@ -11,7 +11,11 @@ import torchvision.transforms.v2 as T
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-""" DIVA virtual try-on image dataset processing """
+"""
+DIVA virtual try-on dataset processing for binary image segmentation (clothes/not clothes).
+images: RGB
+annotated masks: black and white with pixel value = 0 or 255.
+"""
 
 
 class DivaDataset(Dataset):
@@ -33,10 +37,12 @@ class DivaDataset(Dataset):
         file_name = self.image_paths[idx].split("/")[-1]
         #load image
         img = Image.open(self.image_paths[idx])
+        #img = np.array(img.convert("RGB"))
 
         if self.mask_paths is not None:
            #load the mask view. Convert the mask to black and white
            mask = Image.open(self.mask_paths[idx]).convert("L")
+           #mask = np.array(mask, dtype=np.float32)
         
         #transform if needed
         if self.transform is not None:
@@ -48,6 +54,12 @@ class DivaDataset(Dataset):
             else: #no GT mask for test data
               img = self.transform(img)
 
+           #augs = self.transform(image=img, mask=mask)
+           #img = augs["image"]
+           #mask = augs["mask"]
+     
+        #assert (img.size == mask.size), f"Image {img.size()} and mask {mask.size()} should have the same size"   
+        #sample = {"image": img, "mask": mask}
         if self.mask_paths is not None:
             sample = {"img_name": file_name, "image": img, "mask": mask}
         else: #no GT masks
@@ -64,18 +76,30 @@ def getTransform(cfg):
            [ T.Resize((cfg.img_height, cfg.img_width)),
              T.RandomHorizontalFlip(p=0.5),
              T.RandomVerticalFlip(p=0.1),
+             #T.ToImage(),
+             #T.ToDtype(torch.float32, scale=True),
              T.ToTensor(), #should come before Normalize. (HWC->CHW; /255) 
              #resultant values will be in [-1,1]
              T.Lambda(lambda t: (t*2) -1) # can be used on mask and image even when they have different channel dim 
+             #T.Normalize( #cannot be used on grayscale masks
+             #   mean=(0.5, 0.5 , 0.5),
+             #   std=(0.5, 0.5, 0.5)
+            #)
            ]
           )  
 
     #transform validation data 
     val_transf = T.Compose(
            [ T.Resize((cfg.img_height, cfg.img_width)),
+             #T.ToImage(),
+             #T.ToDtype(torch.float32, scale=True),
              T.ToTensor(),
              #resultant values will be in [-1,1]
              T.Lambda(lambda t: (t*2) -1)
+             #T.Normalize(
+             #   mean=(0.5, 0.5 , 0.5),
+             #   std=(0.5, 0.5, 0.5)
+            #)
            ]
         )
     
@@ -84,7 +108,7 @@ def getTransform(cfg):
 
 
 
-def loadData(cfg):
+def loadTrainingData(cfg):
     """ Load the training and validation data """
  
     img_paths = os.listdir(cfg.train_path)
@@ -120,7 +144,7 @@ def loadData(cfg):
     
     return train_dl, val_dl
 
-def getTestData(cfg, gt_mask=False):
+def loadTestData(cfg, gt_mask=False):
     """ Load the test data """
  
     img_paths = sorted(os.listdir(cfg.test_path))

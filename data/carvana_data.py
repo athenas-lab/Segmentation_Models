@@ -11,9 +11,11 @@ import torchvision.transforms.v2 as T
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
 
-""" Carvana image dataset processing """
-"""
+""" 
+Carvana image dataset processing for binary image segmentation (car or not). 
 https://www.kaggle.com/competitions/carvana-image-masking-challenge
+images: RGB
+annotated masks: black and white with pixel value = 0 or 1
 """
 
 class CarvanaDataset(Dataset):
@@ -35,10 +37,12 @@ class CarvanaDataset(Dataset):
         file_name = self.image_paths[idx].split("/")[-1]
         #load image
         img = Image.open(self.image_paths[idx])
+        #img = np.array(img.convert("RGB"))
 
         if self.mask_paths is not None:
            #load the mask view. Convert the mask to black and white
            mask = Image.open(self.mask_paths[idx]).convert("L")
+           #mask = np.array(mask, dtype=np.float32)
         
         #transform if needed
         if self.transform is not None:
@@ -50,7 +54,12 @@ class CarvanaDataset(Dataset):
             else: #no GT mask for test data
               img = self.transform(img)
 
+           #augs = self.transform(image=img, mask=mask)
+           #img = augs["image"]
+           #mask = augs["mask"]
      
+        #assert (img.size == mask.size), f"Image {img.size()} and mask {mask.size()} should have the same size"   
+        #sample = {"image": img, "mask": mask}
         if self.mask_paths is not None:
             sample = {"img_name": file_name, "image": img, "mask": mask}
         else: #no GT masks
@@ -62,42 +71,6 @@ class CarvanaDataset(Dataset):
 def getTransform(cfg):
     """ Return image transform function """
 
-    """
-    # Albumentations for applying the same transforms on the img and mask.
-    # Image is supplied as np array. However, the mask looks black.
-    train_transf = A.Compose(
-           [ A.Resize(cfg.img_height, cfg.img_width),
-            A.Rotate(limit = 35, p=1.0),
-            A.HorizontalFlip(p=0.5),
-            A.VerticalFlip(p=0.1),
-            #resultant values will be in [0, 1]
-            #A.Normalize(
-            #    mean=[0.0, 0.0 , 0.0],
-            #    std=[1.0, 1.0, 1.0]
-            #),
-            #values in [-1, 1]
-            A.Normalize(
-                mean=[0.0, 0.0 , 0.0],
-                std=[1.0, 1.0, 1.0],
-                max_pixel_value=255.0
-            ),
-            ToTensorV2()
-           ]
-          )
-       
-    val_transf = A.Compose(
-           [ A.Resize(height=cfg.img_height, width=cfg.img_width),
-            #values in [-1, 1]
-            A.Normalize(
-                mean=[0.0, 0.0 , 0.0],
-                std=[1.0, 1.0, 1.0],
-                max_pixel_value=255.0
-            ),
-            ToTensorV2()
-           ]
-          )   
-
-    """
     #apply same transform to training data (img, mask)
     train_transf = T.Compose(
            [ T.Resize((cfg.img_height, cfg.img_width)),
@@ -135,7 +108,7 @@ def getTransform(cfg):
 
 
 
-def loadData(cfg):
+def loadTrainingData(cfg):
     """ Load the training and validation data """
  
     img_paths = os.listdir(cfg.train_path)
@@ -171,7 +144,7 @@ def loadData(cfg):
     
     return train_dl, val_dl
 
-def getTestData(cfg, gt_mask=False):
+def loadTestData(cfg, gt_mask=False):
     """ Load the test data """
  
     img_paths = sorted(os.listdir(cfg.test_path))

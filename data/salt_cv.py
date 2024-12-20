@@ -2,14 +2,15 @@ import os
 import glob
 import cv2
 import numpy as np
-from PIL import Image
 from torch.utils.data import DataLoader, Dataset
 from sklearn.model_selection import train_test_split
 import torchvision.transforms.v2 as T
 
 """ 
-Salt segmentation dataset processing for binary image segmentation.
+Salt segmentation dataset processing for binary class image segmentation.
 Based on https://pyimagesearch.com/2021/11/08/u-net-training-image-segmentation-models-in-pytorch/
+images: grayscale
+annotated masks: grayscale
 """
 
 
@@ -31,23 +32,14 @@ class SaltDataset(Dataset):
 
         #load the sample img and mask and return 
 
-        #get the file name. used mainly for kaggle submission for testing
-        file_name = self.image_paths[idx].split("/")[-1]
-
         #load the image and mask
         img = cv2.imread(self.image_paths[idx])
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        if self.mask_paths is not None:
-           #load the binary mask in grayscale mode
-           mask = cv2.imread(self.mask_paths[idx], 0)
-
-        #img = Image.open(self.image_paths[idx])
-       
-        #load the binary mask. Convert the mask to black and white
-        #mask = Image.open(self.mask_paths[idx]).convert("L")
+        #load the binary mask in grayscale mode
+        mask = cv2.imread(self.mask_paths[idx], 0)
 
         #transform the image and mask
-        if self.transform is not None:
+        if self.transforms is not None:
             if self.mask_paths is not None:
               #apply the same transformation to the image and mask 
               img, mask = self.transform(img, mask)
@@ -63,38 +55,24 @@ class SaltDataset(Dataset):
         return  sample
 
 
+
 def getTransform(cfg):
     """ Return image transform function """
 
-    #apply same transform to training data (img, mask)
-    train_transf = T.Compose(
-           [ T.ToPILImage(),
+    #define the image transforms
+    img_transf = T.Compose([T.ToPILImage(),
              T.Resize((cfg.img_height, cfg.img_width)),
-             T.RandomHorizontalFlip(p=0.5),
-             T.RandomVerticalFlip(p=0.1),
-             T.ToTensor(), #should come before Normalize. (HWC->CHW; /255) 
-             #resultant values will be in [-1,1]
-             T.Lambda(lambda t: (t*2) -1) # can be used on mask and image even when they have different channel dim 
-           ]
-          )
+             T.ToTensor()] #normalize pixels in range [0,255] to [0,1]
+             )
 
-    #transform validation data 
-    val_transf = T.Compose(
-           [ T.ToPILImage(),
-             T.Resize((cfg.img_height, cfg.img_width)),
-             T.ToTensor(),
-             #resultant values will be in [-1,1]
-             T.Lambda(lambda t: (t*2) -1)
-           ]
-        )
+    return img_transf, img_transf #for train and val
 
-
-    return train_transf, val_transf
-
-def loadData(cfg):
+def loadTrainingData(cfg):
     """ Get the data loaders for training on the Salt segmentation data """
 
-    img_paths = glob.glob(cfg.train_path + "/*.png")
+    img_root = os.path.join(cfg.train_path, "images")
+    img_paths = glob.glob(img_root + "/*.png")
+    mask_root = os.path.join(cfg.train_path, "masks")
     mask_paths = [x.replace("images", "masks") for x in img_paths]
     print(len(img_paths), len(mask_paths))
 
@@ -119,10 +97,10 @@ def loadData(cfg):
 
     return train_dl, val_dl
 
-def getTestData(cfg, gt_mask=False):
+def loadTestData(cfg, gt_mask=False):
     """ Load the test data """
 
-    img_paths = sorted(glob.glob(cfg.test_path + "/*.png"))
+    img_paths = sorted(glob.glob(cfg.test_path + "/images/*.png"))
 
     #get the transforms
     _,  test_transf = getTransform(cfg)
@@ -134,3 +112,21 @@ def getTestData(cfg, gt_mask=False):
     return test_dl
 
 
+def loadTestSubset(cfg):
+    """ Get the Salt segmentation data for testing """
+
+    # load the image paths for test split and randomly select 10
+    # image paths
+    print("Loading up test image paths...")
+    image_paths = glob.glob(cfg.test_path + "/images/*.png")
+    image_paths = image_paths[0:100] #np.random.choice(image_paths, size=10)
+    
+    #get ground truth masks if available
+    if os.path.exists(cfg.test_path + "/masks"):
+        mask_paths = []
+        for im in image_paths:
+            m = im.replace("images", "masks")
+            mask_paths.append(m)
+    else:
+        mask_paths = None
+    return image_paths, mask_paths

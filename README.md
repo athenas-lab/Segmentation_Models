@@ -45,11 +45,11 @@ add your own dataset.
 
 
 ### References and Acknowledgments
-1.  [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
-2.  [UNet implementation](https://pyimagesearch.com/2021/11/08/u-net-training-image-segmentation-models-in-pytorch/)
-3.  [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
-4.  [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
-5.  [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
-6.  [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
-7.  [Segformer Pytorch implementation](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
+- [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
+   - [UNet implementation](https://pyimagesearch.com/2021/11/08/u-net-training-image-segmentation-models-in-pytorch/)
+- [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
+  - [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
+- [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
+  - [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
+  - [Segformer Pytorch implementation](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
 

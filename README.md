@@ -19,7 +19,7 @@
 ```
 - pip install torch torchvision
 - pip install mathplotlib pandas
-- pip isntall torcheval
+- pip install torcheval
 ```
 
 

@@ -1,11 +1,11 @@
 ## Image Segmentation Models
 
-#### Fully convolutional models
+### Fully convolutional models
 ```unet```: Training and evaluation of following UNet models using different datasets.
 - UNet: model as described in [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
   - UNet with batchnorm (can be optionally enabled in the config file by setting norm = "bn")
   
-#### Transformer-based models
+### Transformer-based models
 ```segformer```: Fine-tuning of Huggingface implementation of Segformer using different datasets.
 - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
 

@@ -112,5 +112,5 @@ Test: 3990 samples, binary class (salt, background)
 - [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
 - [Fusing Backbone Features with Feature Pyramid Network](https://medium.com/@freshtechyy/fusing-backbone-features-using-feature-pyramid-network-fpn-c652aa6a264b)
 - [Segformer: Fine-Tune a Semantic Segmentation Model with a Custom Dataset](https://huggingface.co/blog/fine-tune-segformer)
-- [Segformer Fintuning with CamVid dataset](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
+- [Segformer Finetuning with CamVid dataset](https://github.com/CherifiImene/buildings_and_road_segmentation/blob/main/data_handler/data.py)
 

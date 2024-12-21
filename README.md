@@ -44,6 +44,51 @@ add your own dataset.
     - run: "python main_carvana_seg.py"
     ```
 
+## Performance Evaluation
+
+### Multi-class
+
+#### Cambridge video data: Driving dataset. 
+Test split: 232 images
+
+| Model    | mean IOU | mean accuracy | overall accuracy | 
+|:---------|:--------:|:-------------:|:----------------:|
+| Unet     |          |               |                  |
+| Unet+ BN |          |               |                  |
+| FPN      |          |               |                  |  
+| Segformer| 0.419    |   0.495       | 0.892            |   
+----------------------------------------------------------
+
+
+### Binary-class
+
+#### Carvana: Driving dataset
+
+| Model    | mean IOU | mean accuracy | Foreground class IOU |
+|:---------|:--------:|:-------------:|:----------------------|
+| Unet     |          |               |                       |
+| Unet+ BN |          |               |                       | 
+| Segformer|          |               |                       |
+
+
+#### Diva: virtual try-on dataset
+
+| Model    | mean IOU | mean accuracy | 
+|:---------|:--------:|:-------------:|
+| Unet     |          |               |
+| Unet+ BN |          |               |  
+| Segformer|          |               | 
+
+
+#### Salt: geological dataset
+
+| Model    | mean IOU | mean accuracy | 
+|:---------|:--------:|:-------------:|
+| Unet     |          |               |
+| Unet+ BN |          |               |  
+| Segformer|          |               | 
+
+
 
 
 

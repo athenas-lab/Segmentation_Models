@@ -14,7 +14,6 @@
 - ### Multi-class
 * [Cambridge Video Dataset](https://www.kaggle.com/datasets/carlolepelaars/camvid): urban driving dataset
   - RGB images for urban streets, RGB masks for 32 classes
-  - RGB masks: cv2.imread(bgr).convert(r,g,b)
  
 - ### Binary classes
 - [Carvana](https://www.kaggle.com/competitions/carvana-image-masking-challenge)

@@ -63,7 +63,7 @@ Test split: 232 images, 32 classes
 ### Binary-class
 
 #### Carvana: Single car dataset
-Validation split: binary class (car, background)
+Validation split: binary classes (car, background)
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Car     | iou, acc background|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
@@ -73,22 +73,23 @@ Validation split: binary class (car, background)
 
 
 #### Diva: virtual try-on dataset
+Test: 4774 samples, binary class (cloth, background)
 
-| Model    | mean IOU | mean accuracy | 
-|:---------|:--------:|:-------------:|
-| Unet     |          |               |
-| Unet+ BN |          |               |  
-| Segformer|          |               | 
+| Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Cloth   | iou, acc background|
+|:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
+| Unet     |          |               |                  |
+| Unet+ BN |          |               |                  | 
+| Segformer|   0.999  |  0.999        |    0.999         | 0.999, 0.999     | 0.999, 0.999       |
 
 
 #### Salt: geological dataset
+Test: 3990 samples, binary class (salt, background)
 
-| Model    | mean IOU | mean accuracy | 
-|:---------|:--------:|:-------------:|
-| Unet     |          |               |
-| Unet+ BN |          |               |  
-| Segformer|          |               | 
-
+| Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Salt   | iou, acc background|
+|:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
+| Unet     |          |               |                  |
+| Unet+ BN |          |               |                  | 
+| Segformer|   0.975  |  0.987        |    0.991         | 0.963, 0.979     | 0.988, 0.994       |
 
 
 

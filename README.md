@@ -51,12 +51,12 @@ add your own dataset.
 #### Cambridge video data: Driving dataset. 
 Test split: 232 images, 32 classes
 
-| Model    | mean IOU | mean accuracy | overall accuracy | iou,acc Building|iou_Car  |iou,acc LaneMkgsDriv|iou,acc Sidewalk|iou,acc SUVPickupTruck|iou,acc TrafficLight|
-|:---------|:--------:|:-------------:|:----------------:|:---------------:|:--------|:------------------:|:--------------:|:--------------------:|:------------------:|
+| Model    | mean IOU | mean accuracy | overall accuracy | iou,acc Building|iou,acc Car|iou,acc LaneMkgsDriv|iou,acc Pedestrian|iou,acc Sidewalk|iou,acc SUVPickupTruck|iou,acc TrafficLight|
+|:---------|:--------:|:-------------:|:----------------:|:---------------:|:----------|:------------------:|:----------------:|:--------------:|:--------------------:|:------------------:|
 | Unet     |          |               |                  |
 | Unet+ BN |          |               |                  |
 | FPN      |          |               |                  |  
-| Segformer| 0.419    |   0.495       | 0.892            |   
+| Segformer| 0.419    |   0.495       | 0.892            | 0.867, 0.957|
 ----------------------------------------------------------
 
 

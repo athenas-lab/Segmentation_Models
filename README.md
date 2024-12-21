@@ -11,11 +11,11 @@
 
 ## Datasets used for training and evaluation
 
-- ### Multi-class
+- ### Multi-class segmentation
 * [Cambridge Video Dataset](https://www.kaggle.com/datasets/carlolepelaars/camvid): urban driving dataset
   - RGB images for urban streets, RGB masks for 32 classes
  
-- ### Binary classes
+- ### Binary class segmentation
 - [Carvana](https://www.kaggle.com/competitions/carvana-image-masking-challenge)
    - a dataset with single car images in RGB,  black/white masks (0: background, 1: car)
    - mask the car area and remove background
@@ -25,9 +25,6 @@
      
 - [Salt](https://www.kaggle.com/c/tgs-salt-identification-challenge/overview): geological dataset to detect salt
    - grayscale image, grayscale mask to detect the areas with salt deposit (0: no salt, 255: salt)
-
-
- 
 
 
 ## Dependencies

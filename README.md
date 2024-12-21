@@ -10,10 +10,26 @@
 - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
 
 ## Datasets used for training and evaluation
+
+- ### Multi-class
+* [Cambridge Video Dataset](https://www.kaggle.com/datasets/carlolepelaars/camvid): urban driving dataset
+  - RGB images for urban streets, RGB masks for 32 classes
+  - RGB masks: cv2.imread(bgr).convert(r,g,b)
+ 
+- ### Binary classes
 - [Carvana](https://www.kaggle.com/competitions/carvana-image-masking-challenge)
-   - mask images with a single car and remove background
-- [Salt](https://www.kaggle.com/c/tgs-salt-identification-challenge/overview)
-   - mask the areas with salt deposit
+   - a dataset with single car images in RGB,  black/white masks (0: background, 1: car)
+   - mask the car area and remove background
+ 
+- DIVA: virtual-tryon
+  - RGB images, grayscale mask to detect the areas with clothes/dress (0: background,  255: cloth)
+     
+- [Salt](https://www.kaggle.com/c/tgs-salt-identification-challenge/overview): geological dataset to detect salt
+   - grayscale image, grayscale mask to detect the areas with salt deposit (0: no salt, 255: salt)
+
+
+ 
+
 
 ## Dependencies
 ```

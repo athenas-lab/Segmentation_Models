@@ -49,10 +49,10 @@ add your own dataset.
 ### Multi-class
 
 #### Cambridge video data: Driving dataset. 
-Test split: 232 images
+Test split: 232 images, 32 classes
 
-| Model    | mean IOU | mean accuracy | overall accuracy | 
-|:---------|:--------:|:-------------:|:----------------:|
+| Model    | mean IOU | mean accuracy | overall accuracy | iou,acc Building|iou_Car  |iou,acc LaneMkgsDriv|iou,acc Sidewalk|iou,acc SUVPickupTruck|iou,acc TrafficLight|
+|:---------|:--------:|:-------------:|:----------------:|:---------------:|:--------|:------------------:|:--------------:|:--------------------:|:------------------:|
 | Unet     |          |               |                  |
 | Unet+ BN |          |               |                  |
 | FPN      |          |               |                  |  

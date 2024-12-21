@@ -52,7 +52,7 @@ add your own dataset.
 Test split: 232 images, 32 classes
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou,acc Building|iou,acc Car|iou,acc LaneMkgsDriv|iou,acc Pedestrian|iou,acc Sidewalk|iou,acc SUVPickupTruck|iou,acc TrafficLight|
-|:---------|:--------:|:-------------:|:----------------:|:---------------:|:----------|:------------------:|:----------------:|:--------------:|:--------------------:|:------------------:|
+|:---------|:--------:|:-------------:|:----------------:|:---------------:|:----------|:----------:|:----------------:|:--------------:|:--------------------:|:------------------:|
 | Unet     |          |               |                  |
 | Unet+ BN |          |               |                  |
 | FPN      |          |               |                  |  

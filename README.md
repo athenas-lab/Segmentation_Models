@@ -3,7 +3,7 @@
 This repo contains the pytorch implementation of the following models. These models have been trained and evaluated on the datasets listed below for binary and multi-class segmentation.
 
 ### Fully convolutional models
--```unet```: Training and evaluation of following UNet models using different datasets.
+- ```unet```: Training and evaluation of following UNet models using different datasets.
   - UNet: model as described in [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
     - UNet with batchnorm (can be optionally enabled in the config file by setting norm = "bn")
 - Feature Pyramid Network: [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
@@ -65,12 +65,13 @@ add your own dataset.
 
 #### Cambridge video data: Driving dataset. 
 Test split: 232 images, 32 classes
+Model trained using cross-entropy loss.
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Building|iou, acc Car|iou, acc LaneMkgsDriv|iou, acc Pedestrian|iou, acc Sidewalk|iou, acc SUVPickupTruck|iou, acc TrafficLight|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:-----------|:-------------------:|:-----------------:|:---------------:|:---------------------:|:-------------------:|
 | Unet     |          |               |                  |
 | Unet+ BN |          |               |                  |
-| FPN      |          |               |                  |  
+| FPN      | 0.275    |   0.351       | 0.799            | 0.711, 0.838     |0.613, 0.894|0.284, <br>0.352     |0.168, 0.281       |0.697, 0.870     |0.064, <br>0.067       |0.282, 0.326         |    
 | Segformer| 0.419    |   0.495       | 0.892            | 0.867, 0.957     |0.792, 0.937|0.503, <br>0.584     |0.442, 0.618       |0.815, 0.938     |0.322, <br>0.506       |0.592, 0.736         | 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

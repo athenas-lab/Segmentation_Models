@@ -3,7 +3,7 @@
 This repo contains the pytorch implementation of the following models. These models have been trained and evaluated on the datasets listed below for binary and multi-class segmentation.
 
 ### Fully convolutional models
-```unet```: Training and evaluation of following UNet models using different datasets.
+-```unet```: Training and evaluation of following UNet models using different datasets.
   - UNet: model as described in [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
     - UNet with batchnorm (can be optionally enabled in the config file by setting norm = "bn")
 - Feature Pyramid Network: [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)

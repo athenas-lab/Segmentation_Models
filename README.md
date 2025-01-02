@@ -64,17 +64,20 @@ add your own dataset.
 ### Multi-class
 
 #### Cambridge video data: Driving dataset. 
-Test split: 232 images, 32 classes
-Model trained using cross-entropy loss.
+- Test split: 232 images, 32 classes.
+- Model trained using cross-entropy loss.
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Building|iou, acc Car|iou, acc LaneMkgsDriv|iou, acc Pedestrian|iou, acc Sidewalk|iou, acc SUVPickupTruck|iou, acc TrafficLight|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:-----------|:-------------------:|:-----------------:|:---------------:|:---------------------:|:-------------------:|
-| Unet     |          |               |                  |
-| Unet+ BN |          |               |                  |
+| Unet     | 0.093    |   0.127       | 0.660            | 0.49, 0.913      |0.019, 0.020|0, <br>0             |0, 0               |0.321, 0.505     |0,  <br> 0             |0, 0                 | 
+| Unet+ BN | 0.144    |   0.191       | 0.748            | 0.648, 0.888     |0.388, 0.815|0, <br>0             |0, 0               |0.593, 0.771     |0.0, <br> 0.0          |0.0, 0.0             |
 | FPN      | 0.275    |   0.351       | 0.799            | 0.711, 0.838     |0.613, 0.894|0.284, <br>0.352     |0.168, 0.281       |0.697, 0.870     |0.064, <br>0.067       |0.282, 0.326         |    
 | Segformer| 0.419    |   0.495       | 0.892            | 0.867, 0.957     |0.792, 0.937|0.503, <br>0.584     |0.442, 0.618       |0.815, 0.938     |0.322, <br>0.506       |0.592, 0.736         | 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+- Segformer outperforms the fully convolutional models across all metrics for this dataset.
+- Among the fully convolutional models, FPN outperforms the UNet model.
+- Using batchnorm with UNet yields better performance.
 
 ### Binary-class
 

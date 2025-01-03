@@ -98,7 +98,7 @@ Test: 4774 samples, binary class (cloth, background)
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Cloth   | iou, acc background|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
 | Unet     |          |               |                  |
-| Unet+ BN |          |               |                  | 
+| Unet+ BN |   0.872  |  0.933        |    0.941         | 0.827, 0.912     | 0.917, 0.954       |
 | Segformer|   0.999  |  0.999        |    0.999         | 0.999, 0.999     | 0.999, 0.999       |
 
 

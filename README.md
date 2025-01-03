@@ -1,6 +1,6 @@
 ## Image Segmentation Models
 
-This repo contains the pytorch implementation of the following models. These models have been trained and evaluated on the datasets listed below for binary and multi-class segmentation. These models are briefly described at(https://github.com/athenas-lab/Segmentation_Models/wiki).
+This repo contains the pytorch implementation of the following models. These models have been trained and evaluated on the datasets listed below for binary and multi-class segmentation. These models are briefly described on [this wiki](https://github.com/athenas-lab/Segmentation_Models/wiki).
 
 ### Fully convolutional models
 - ```unet```: Training and evaluation of following UNet models using different datasets.

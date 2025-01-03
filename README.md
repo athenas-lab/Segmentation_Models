@@ -93,11 +93,12 @@ Validation split: binary classes (car, background)
 
 
 #### Diva: virtual try-on dataset
-Test: 4774 samples, binary class (cloth, background)
+- Test: 4774 samples, binary class (cloth, background)
+- Model trained using categorical cross-entropy loss (with 2 classes) yielded better performance than binary cross-entropy loss (with single class). 
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Cloth   | iou, acc background|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
-| Unet     |          |               |                  |
+| Unet     |   0.884  |  0.938        |    0.947         | 0.842, 0.913     | 0.926, 0.962       |
 | Unet+ BN |   0.872  |  0.933        |    0.941         | 0.827, 0.912     | 0.917, 0.954       |
 | Segformer|   0.999  |  0.999        |    0.999         | 0.999, 0.999     | 0.999, 0.999       |
 

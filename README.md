@@ -101,9 +101,12 @@ Validation split: binary classes (car, background)
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
 | Unet     |   0.884  |  0.938        |    0.947         | 0.842, 0.913     | 0.926, 0.962       |
 | Unet+ BN |   0.872  |  0.933        |    0.941         | 0.827, 0.912     | 0.917, 0.954       |
-| FPN      |   
+| FPN      |   0.991  |  0.995        |    0.996         | 0.988, 0.991     | 0.994, 0.999       |
 | Segformer|   0.999  |  0.999        |    0.999         | 0.999, 0.999     | 0.999, 0.999       |
 
+- Segformer outperforms the fully convolutional models across all metrics for this dataset.
+- Among the fully convolutional models, FPN outperforms the UNet model.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### Salt: geological dataset
 Test: 3990 samples, binary class (salt, background)

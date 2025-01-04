@@ -95,7 +95,7 @@ Validation split: binary classes (car, background)
 - Segformer outperforms the fully convolutional models across all metrics for this dataset.
 - Among the fully convolutional models, FPN outperforms the UNet model.
 - Unet with and without batchnorm provide comparable performance.
-- FPN and Unet peforms better with Cross-entropy loss compared to BCELogitsLoss.
+- FPN and Unet peform better with Cross-entropy loss compared to BCELogitsLoss.
 - Unet with BN peforms slightly better with BCELogitsLoss loss compared to Cross-entropy loss.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -119,13 +119,14 @@ Test: 3990 samples, binary class (salt, background)
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Salt   | iou, acc background|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
-| Unet     |          |               |                  |
-| Unet+ BN |          |               |                  | 
+| Unet(ce) |   0.579  |  0.719        |    0.759         | 0.697, 0.859     | 0.46, 0.578        |
+| Unet+ BN |   0.64   |  0.771        |    0.799         | 0.737, 0.871     | 0.544, 0.671       |
 | FPN      |
 | Segformer|   0.975  |  0.987        |    0.991         | 0.963, 0.979     | 0.988, 0.994       |
 
-
-
+- Using batchnorm with UNet yields better performance.
+- FPN and Unet peform better with Cross-entropy loss compared to BCELogitsLoss.
+- Unet with BN peforms slightly better with BCELogitsLoss loss compared to Cross-entropy loss.
 
 
 ### References and Acknowledgments

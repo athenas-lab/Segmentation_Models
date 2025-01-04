@@ -74,7 +74,6 @@ add your own dataset.
 | FPN      | 0.275    |   0.351       | 0.799            | 0.711, 0.838     |0.613, 0.894|0.284, 0.352     |0.168, 0.281       |0.697, 0.870     |0.064, 0.067       |0.282, 0.326         |    
 | Segformer| 0.419    |   0.495       | 0.892            | 0.867, 0.957     |0.792, 0.937|0.503, 0.584     |0.442, 0.618       |0.815, 0.938     |0.322, 0.506       |0.592, 0.736         | 
 
-
 - Segformer outperforms the fully convolutional models across all metrics for this dataset.
 - Among the fully convolutional models, FPN outperforms the UNet model.
 - Using batchnorm with UNet yields better performance.
@@ -121,12 +120,15 @@ Test: 3990 samples, binary class (salt, background)
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
 | Unet(ce) |   0.579  |  0.719        |    0.759         | 0.697, 0.859     | 0.46, 0.578        |
 | Unet+ BN |   0.64   |  0.771        |    0.799         | 0.737, 0.871     | 0.544, 0.671       |
-| FPN      |
+| FPN      |   0.764  |  0.861        |    0.877         | 0.828, 0.917     | 0.7, 0.806         |  
 | Segformer|   0.975  |  0.987        |    0.991         | 0.963, 0.979     | 0.988, 0.994       |
 
+- Segformer outperforms the fully convolutional models across all metrics for this dataset.
+- Among the fully convolutional models, FPN outperforms the UNet model.
 - Using batchnorm with UNet yields better performance.
-- FPN and Unet peform better with Cross-entropy loss compared to BCELogitsLoss.
-- Unet with BN peforms slightly better with BCELogitsLoss loss compared to Cross-entropy loss.
+- Unet peforms better with Cross-entropy loss compared to BCELogitsLoss.
+- FPN and Unet with BN peforms better with BCELogitsLoss loss compared to Cross-entropy loss.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 ### References and Acknowledgments

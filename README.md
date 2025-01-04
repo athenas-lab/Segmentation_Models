@@ -89,9 +89,15 @@ Validation split: binary classes (car, background)
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
 | Unet     |   0.97   | 0.985         |    0.99          | 0.953, 0.977     | 0.987, 0.993       |
 | Unet+ BN |   0.975  | 0.988         |    0.992         | 0.96,  0.978     | 0.989, 0.994       |
-| FPN      |
-| Segformer|   0.994  |  0.997        |    0.998         | 0.990, 0.996     | 0.997, 0.998       |
+| FPN      |   0.989  | 0.995         |    0.996         | 0.983, 0.993     | 0.995, 0.997       | 
+| Segformer|   0.994  | 0.997         |    0.998         | 0.990, 0.996     | 0.997, 0.998       |
 
+- Segformer outperforms the fully convolutional models across all metrics for this dataset.
+- Among the fully convolutional models, FPN outperforms the UNet model.
+- Unet with and without batchnorm provide comparable performance.
+- FPN and Unet peforms better with Cross-entropy loss compared to BCELogitsLoss.
+- Unet with BN peforms slightly better with BCELogitsLoss loss compared to Cross-entropy loss.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #### Diva: virtual try-on dataset
 - Test: 4774 samples, binary class (cloth, background)

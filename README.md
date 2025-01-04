@@ -87,8 +87,8 @@ Validation split: binary classes (car, background)
 
 | Model    | mean IOU | mean accuracy | overall accuracy | iou, acc Car     | iou, acc background|
 |:---------|:--------:|:-------------:|:----------------:|:----------------:|:------------------:|
-| Unet     |          |               |                  |
-| Unet+ BN |          |               |                  |  
+| Unet     |   0.97   | 0.985         |    0.99          | 0.953, 0.977     | 0.987, 0.993       |
+| Unet+ BN |   0.975  | 0.988         |    0.992         | 0.96,  0.978     | 0.989, 0.994       |
 | FPN      |
 | Segformer|   0.994  |  0.997        |    0.998         | 0.990, 0.996     | 0.997, 0.998       |
 

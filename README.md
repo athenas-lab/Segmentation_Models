@@ -9,8 +9,8 @@ This repo contains the pytorch implementation of the following models. These mod
   - Feature Pyramid Network: [Feature Pyramid Networks for Object Detection](https://arxiv.org/pdf/1612.03144)
   
 ### Transformer-based models
-```segformer```: Fine-tuning of Huggingface implementation of Segformer using different datasets.
-- [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
+-```segformer```: Fine-tuning of Huggingface implementation of Segformer using different datasets.
+ - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
 
 ## Datasets used for training and evaluation
 

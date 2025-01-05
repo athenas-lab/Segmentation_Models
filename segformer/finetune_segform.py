@@ -23,8 +23,7 @@ from transformers import (
 
 
 sys.path.append("../")
-import eval_utils as eu
-import data.viz_seg_data as viz
+import common.viz_seg_data as viz
 
 
 """ Finetune a Segformer model for semantic segmentation """

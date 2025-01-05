@@ -10,7 +10,7 @@ This repo contains the pytorch implementation of the following models. These mod
   
 ### Transformer-based models
 - ```segformer```: Fine-tuning of Huggingface implementation of Segformer using different datasets.
- - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
+  - [SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers](https://arxiv.org/abs/2105.15203)
 
 ## Datasets used for training and evaluation
 

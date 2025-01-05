@@ -53,7 +53,7 @@ class Config:
      def configSaltData(self):
            #salt segmentation dataset (black and white)
            
-           data_root = "/home/krishna/deep_learning/datasets/segmentation/%s"%self.data_name
+           data_root = "./datasets/segmentation/%s"%self.data_name
            self.orig_img_h  = 101 #original image size before resizing for RLE computation
            self.orig_img_w  = 101
            self.img_height = 128 
@@ -99,7 +99,7 @@ class Config:
      def configCamVidData(self):
           #camvid segmentation dataset for autonomous driving (RGB data, multiclass)
  
-           data_root = "/home/krishna/deep_learning/datasets/segmentation/%s"%self.data_name
+           data_root = "./datasets/segmentation/%s"%self.data_name
            self.img_height = 224  #resized height and width
            self.img_width = 224
            self.orig_img_h = 360
@@ -151,7 +151,7 @@ class Config:
      def configCarvanaData(self):
           #carvana segmentation dataset for cars (RGB data, binary)
 
-           data_root = "/home/krishna/deep_learning/datasets/segmentation/%s"%self.data_name
+           data_root = "./datasets/segmentation/%s"%self.data_name
            self.orig_img_h  = 1280 #original image size before resizing for RLE computation
            self.orig_img_w  = 1918
            self.img_height = 320 #size after resizing
@@ -198,7 +198,7 @@ class Config:
      def configDivaData(self):
            #Diva segmentation dataset for clothes (RGB data, binary)
 
-           data_root = "/home/krishna/deep_learning/datasets/vton/diva/dataset/"
+           data_root = "./datasets/diva/"
            self.orig_img_h = 720
            self.orig_img_w = 540
            self.img_height = 224

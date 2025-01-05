@@ -6,7 +6,7 @@ import torch
 
 class Config:
 
-     def __init__(self, data_name, model_name, loss_fn, mode="train"):
+     def __init__(self, data_name, model_name, loss_fn=None, mode="train"):
 
         self.num_workers = 1 #number of worker threads for data loading
         self.device = "cuda" if torch.cuda.is_available() else "cpu"

@@ -23,7 +23,7 @@ This repo contains the pytorch implementation of the following models. These mod
    - a dataset with single car images in RGB,  black/white masks (0: background, 1: car)
    - mask the car area and remove background
  
-- DIVA: virtual-tryon
+- Virtual-tryon
   - RGB images, grayscale mask to detect the areas with clothes/dress (0: background,  255: cloth)
      
 - [Salt](https://www.kaggle.com/c/tgs-salt-identification-challenge/overview): geological dataset to detect salt

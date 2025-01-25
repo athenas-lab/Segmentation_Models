@@ -98,7 +98,7 @@ Validation split: binary classes (car, background)
 - Unet with BN peforms slightly better with BCELogitsLoss loss compared to Cross-entropy loss.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-#### Diva: virtual try-on dataset
+#### Virtual try-on dataset
 - Test: 4774 samples, binary class (cloth, background)
 - Model trained using categorical cross-entropy loss (with 2 classes) yielded better performance than binary cross-entropy loss (with single class). 
 
